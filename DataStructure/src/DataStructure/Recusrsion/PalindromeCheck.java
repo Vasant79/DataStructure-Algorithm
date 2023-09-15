@@ -16,14 +16,13 @@ public class PalindromeCheck {
         }
 
         // call
-        palindrome(str, firstindex + 1, LastIndex - 1);
+        return palindrome(str, firstindex + 1, LastIndex - 1);
 
-        return true;
     }
 
     public static void main(String args[]) {
 
-        String str = "RACECAR";
+        String str = "RACE A CAR";
         int firstindex = 0;
         int LastIndex = str.length() - 1;
 
