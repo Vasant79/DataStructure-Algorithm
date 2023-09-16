@@ -30,9 +30,9 @@ public class SumOfNNaturalNo {
 
     public static void main(String args[]) {
 
-        int k = 1;
+        // int k = 1;
         int n = 10;
-        int sum = 0;
+        // int sum = 0;
 
         // printSum(k, n, sum);
         System.out.println(printSum_2(n));

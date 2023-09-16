@@ -13,7 +13,7 @@ public class BinarySearchQ {
 
         int firstOccurence;
         int lastOccurence;
-        int totalOccurence;
+        // int totalOccurence = 0;
 
         int ans = -1;
 
@@ -66,7 +66,7 @@ public class BinarySearchQ {
         lastOccurence = ans;
 
         System.out.println(lastOccurence);
-        System.out.println(totalOccurence = (lastOccurence - firstOccurence) + 1);
+        System.out.println((lastOccurence - firstOccurence) + 1);
 
     }
 
@@ -298,7 +298,7 @@ public class BinarySearchQ {
 
     public static void main(String args[]) {
 
-        int arr[] = { 4, 5, 6, 7, 0, 1, 2 };
+        // int arr[] = { 4, 5, 6, 7, 0, 1, 2 };
         // firstLastOccurence(n, 6);
         // System.out.println(peakIndex(n));
 

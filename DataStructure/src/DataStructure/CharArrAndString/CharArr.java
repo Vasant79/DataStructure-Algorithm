@@ -276,8 +276,8 @@ public class CharArr {
 
     public static void main(String args[]) {
 
-        String str = "vasant";
-        char arr[] = { 'v', 'a', 's', 'u' };
+        // String str = "vasant";
+        // char arr[] = { 'v', 'a', 's', 'u' };
 
         // lengthOfString(str);
         // length(arr);

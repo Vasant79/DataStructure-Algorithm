@@ -2,6 +2,7 @@ package TufBasic;
 
 public class LongestSubArrayK {
 
+    // problem -- my code only consider adjust cases not all possible sub array
     public static void subArraySumK(int arr[], int k, int n) {
 
         // storing possible answer
