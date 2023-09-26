@@ -48,6 +48,7 @@ public class RoughWork {
     public static void optimize1(int arr[], int target) {
 
         int len = 0;
+        int count = 0;
 
         for (int i = 0; i < arr.length; i++) {
 
@@ -58,22 +59,24 @@ public class RoughWork {
                 sum = sum + arr[j];
 
                 if (sum == target) {
+                    count++;
                     len = Math.max(len, j - i + 1);
                 }
 
             }
         }
 
-        System.out.println("using 2 loops : " + len);
+        System.out.println("sub Arr with Max len : " + len);
+        System.out.println("No of subArr having count " + target + " --> " + count);
     }
 
     public static void main(String args[]) {
 
-        int arr[] = { 2, 3, 5 };
-        int k = 5;
+        int arr[] = { 3, 1, 2, 4 };
+        int k = 6;
 
         // subarr(arr);
-        sumOfSubArray(arr, k);
+        // sumOfSubArray(arr, k);
         optimize1(arr, k);
 
     }
