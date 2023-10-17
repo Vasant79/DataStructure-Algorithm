@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class RoughWork {
 
@@ -70,14 +71,37 @@ public class RoughWork {
         System.out.println("No of subArr having count " + target + " --> " + count);
     }
 
+    // longest consequtive sequence
+    public static void longestConsequtiveSequence(int arr[]) {
+
+        Arrays.sort(arr);
+        int count = 0;
+        int currentCount = 1;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            if (i + 1 < arr.length) {
+                if (arr[i] + 1 == arr[i + 1]) {
+                    currentCount++;
+                } else {
+                    currentCount = 1;
+                }
+            }
+
+            count = Math.max(count, currentCount);
+        }
+        System.out.println(count);
+    }
+
     public static void main(String args[]) {
 
-        int arr[] = { 3, 1, 2, 4 };
-        int k = 6;
+        int arr[] = { 3, 8, 5, 7, 6, 11, 10 };
+        // int k = 6;
 
         // subarr(arr);
         // sumOfSubArray(arr, k);
-        optimize1(arr, k);
+        // optimize1(arr, k);
+        longestConsequtiveSequence(arr);
 
     }
 
