@@ -137,7 +137,8 @@ public class LargestAreaRectangle {
 
     public static void main(String args[]) {
 
-        int arr[] = { 2, 1, 5, 6, 2, 3 };
+        // int arr[] = { 2, 1, 5, 6, 2, 3 };
+        int arr[] = { 0, 9 };
 
         // largestAreaRectangle(arr); brute force approch
 
