@@ -58,6 +58,28 @@ public class BST {
 
     }
 
+    public static void preorder(Node root) {
+
+        if (root == null) {
+            return;
+        }
+
+        System.out.print(root.data);
+        preorder(root.left);
+        preorder(root.right);
+    }
+
+    public static void postorder(Node root) {
+
+        if (root == null) {
+            return;
+        }
+
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.data);
+    }
+
     public static void main(String[] args) {
         Node root = new Node(0);
 
@@ -67,6 +89,14 @@ public class BST {
         // inorder traversal
         System.out.print("Inorder traversal is:  ");
         inorder(root);
+
+        System.out.println(" ");
+        System.out.print("PreOrder traversal is:  ");
+        preorder(root);
+
+        System.out.println(" ");
+        System.out.print("PostOrder traversal is:  ");
+        postorder(root);
 
     }
 
