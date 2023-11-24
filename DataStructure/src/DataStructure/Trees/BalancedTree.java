@@ -28,8 +28,13 @@ public class BalancedTree {
         }
 
         int left = balanceTree(root.left);
+        if (left == -1) {
+            return -1;
+        }
         int right = balanceTree(root.right);
-
+        if (right == -1) {
+            return -1;
+        }
         if (Math.abs(left - right) > 1) {
             return -1;
         }
@@ -50,7 +55,7 @@ public class BalancedTree {
 
         balanceTree(root);
 
-        if (balanceTree(root) == 1) {
+        if (balanceTree(root) != -1) {
             System.out.println("Balanced tree");
         } else {
             System.out.println("Not a balanced tree");
