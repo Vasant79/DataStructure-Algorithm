@@ -1,7 +1,6 @@
 package DataStructure.Stack;
 
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * intitution -- major part includes finding largest rectangle in histogram
