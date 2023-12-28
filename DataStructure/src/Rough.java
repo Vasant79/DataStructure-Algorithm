@@ -2,97 +2,84 @@ import java.util.*;
 
 public class Rough {
 
-    public static void nextGreater(int arr[]) {
+    /**
+     * 
+     * finding next greater using circular way -- modulas
+     */
+    public static void nextSmaller(int arr[]) {
 
-        // it takes o(n^2) tc
+        int result[] = new int[arr.length];
+
         for (int i = 0; i < arr.length; i++) {
 
-            for (int j = i + 1; j < arr.length; j++) {
+            for (int j = i + 1; j < 2 * arr.length; j++) {
 
-                if (arr[j] > arr[i]) {
-                    arr[i] = arr[j];
+                if (arr[j % arr.length] > arr[i]) {
+                    result[i] = arr[j % arr.length];
                     break;
                 }
             }
-        }
-
-        System.out.println(Arrays.toString(arr));
-    }
-
-    // optimize sol using stack to optimize next greater
-    /**
-     * algo -- itr from back
-     * if stacknempty push arr[i]
-     * if stack !empty check peek -- if peek > arr[i] = peek & push arr[i]
-     * "" "" if peekn< arr[i] pop till peek > or empty stack
-     */
-    public static void optimizedSol(int arr[]) {
-        Stack<Integer> stack = new Stack<>();
-
-        for (int i = arr.length - 1; i >= 0; i--) {
-
-            if (stack.isEmpty()) {
-                stack.push(arr[i]);
-            } else if (arr[i] < stack.peek()) {
-
-                int top = stack.peek();
-                int current = arr[i];
-
-                arr[i] = top;
-                stack.push(current);
-            } else if (arr[i] > stack.peek()) {
-
-                while (!stack.isEmpty() && stack.peek() < arr[i]) {
-                    // pop
-                    stack.pop();
-                }
-
-                if (stack.isEmpty()) {
-                    stack.push(arr[i]);
-                } else {
-                    int current = arr[i];
-                    int top = stack.peek();
-                    arr[i] = top;
-                    stack.push(current);
-
-                }
-
+            if (result[i] == 0) {
+                result[i] = -1;
             }
-
         }
 
-        System.out.println(Arrays.toString(arr));
+        System.out.println("Finding next greater using modulas " + Arrays.toString(result));
     }
 
-    public static void optimizedSol2(int arr[]) {
+    /**
+     * 
+     * find next greater using stack
+     */
+    public static void nextGreaterUsingStack(int arr[]) {
 
         Stack<Integer> stack = new Stack<>();
         int result[] = new int[arr.length];
 
         for (int i = arr.length - 1; i >= 0; i--) {
 
-            while (!stack.isEmpty() && stack.peek() <= arr[i]) {
-                stack.pop();
+            if (!stack.isEmpty()) {
+
+                if (stack.peek() > arr[i]) {
+                    result[i] = stack.peek();
+                    stack.push(arr[i]);
+
+                } else {
+                    while (!stack.isEmpty() && stack.peek() <= arr[i]) {
+                        stack.pop();
+                    }
+
+                    // in case all element are poped
+                    if (stack.isEmpty()) {
+                        result[i] = -1;
+                        stack.push(arr[i]);
+
+                    } else {
+                        // in case peek > arr[i]
+                        result[i] = stack.peek();
+                        stack.push(arr[i]);
+
+                    }
+                }
+
+            } else {
+                result[i] = -1;
+                stack.push(arr[i]);
             }
 
-            if (stack.isEmpty()) {
-                stack.push(arr[i]);
-                result[i] = -1;
-            } else {
-                result[i] = stack.peek();
-            }
         }
-        System.out.println(Arrays.toString(result));
+
+        System.out.println("result of next greater : " + Arrays.toString(result));
+
     }
 
     public static void main(String args[]) {
 
-        // print next greater element for this arr
-        int arr[] = { 2, 1, 6, 9, 3, 5 };
+        int arr[] = { 1, 2, 3, 4, 3 };
+        int arr2[] = { 5, 7, 1, 7, 6, 0 };
 
-        // nextGreater(arr);
-        optimizedSol2(arr);
-
+        // nextSmaller(arr);
+        nextGreaterUsingStack(arr2);
     }
 
 }
