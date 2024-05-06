@@ -36,7 +36,6 @@ function secondLargestElement(number) {
 secondLargestElement(number);
 
 // finding solution wihtout without sorting -- tc  On
-
 function max(number) {
   //Math.max(...arr)
   let max = Number.MIN_SAFE_INTEGER;
