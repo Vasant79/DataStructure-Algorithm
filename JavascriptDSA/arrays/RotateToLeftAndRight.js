@@ -1,4 +1,5 @@
 // rotate array element to right / left by k
+const array = [1, 2, 3, 4, 5, 6, 7];
 
 function rotateToRightByK(array, k) {
   const temp = [];
@@ -44,6 +45,30 @@ function rotateToLeftByK(array, k) {
 
   return array;
 }
+
+// striver optimized approch -- reverse the k elemenst - reverse the rest elements - reverse the whole array
+
+function reverse(array, start, end) {
+  while (start < end) {
+    //swap
+    let temp = array[start];
+    array[start] = array[end];
+    array[end] = temp;
+    start++;
+    end--;
+  }
+}
+
+function moveLeftByk(array, k) {
+  let len = array.length - 1;
+  reverse(array, 0, k - 1);
+  reverse(array, k, len);
+  reverse(array, 0, len);
+
+  console.log(array);
+}
+
+console.log("optimisez solution --> ", moveLeftByk(array, 2));
 
 console.log("Array rotated to right by k times :  [1, 2, 3, 4, 5, 6, 7] ");
 rotateToRightByK([1, 2, 3, 4, 5, 6, 7], 2);

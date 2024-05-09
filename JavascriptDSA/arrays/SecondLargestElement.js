@@ -64,4 +64,26 @@ function secondLargestMax(number) {
   );
 }
 
-secondLargestElement(number);
+//striver solution --
+function secondLarge2(number) {
+  if (number.length < 2) {
+    return -1;
+  }
+
+  let large = -Infinity;
+  let secondLarge = -Infinity;
+
+  for (let i = 0; i < number.length; i++) {
+    if (number[i] > large) {
+      secondLarge = large;
+      large = number[i];
+    } else if (number[i] > secondLarge && number[i] != large) {
+      secondLarge = number[i];
+    }
+  }
+
+  console.log(secondLarge);
+}
+
+// secondLargestElement(number);
+secondLarge2(number);
