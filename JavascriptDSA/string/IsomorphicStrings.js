@@ -7,6 +7,31 @@
 const s = "egg";
 const t = "add";
 
+// better approch -- store values of s in map1 & t in map2, check if mapS values meet T and vice-versa
+var isIsomorphic = function (s, t) {
+  if (s.length != t.length) return false;
+
+  let mapS = {};
+  let mapT = {};
+
+  let i = 0;
+
+  // first loop populates maps and mapt
+  while (i < s.length) {
+    mapS[s[i]] = t[i];
+    mapT[t[i]] = s[i];
+
+    i++;
+  }
+
+  for (let i = 0; i < s.length; i++) {
+    if (mapS[s[i]] != t[i]) return false;
+    if (mapT[t[i]] != s[i]) return false;
+  }
+  console.log(mapS, mapT);
+  return true;
+};
+// ------------ approch 2 ---------------
 function isomorphic(s, t) {
   if (s.length != t.length) {
     return false;
