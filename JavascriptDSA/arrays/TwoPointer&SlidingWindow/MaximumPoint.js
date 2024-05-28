@@ -9,45 +9,32 @@ Input: cardPoints = [1,2,3,4,5,6,1], k = 3
 Output: 12
  */
 
-const cardPoints = [1, 12, 3, 4, 5, 6, 1];
-const k = 3;
+// const cardPoints = [1, 2, 3, 4, 5, 6, 1];
+// const k = 3;
+
+const cardPoints = [9, 7, 7, 9, 7, 7, 9];
+const k = 7;
 
 function maximumPoint(cardPoints, k) {
-  let maxPoint = 0;
-  let point = 0;
+  let left = k - 1;
+  let right = cardPoints.length - 1;
 
-  //forward k
-  for (let i = 0; i < k; i++) {
-    point = point + cardPoints[i];
-    maxPoint = Math.max(maxPoint, point);
+  let sum = 0;
+  let maxSum = 0;
+
+  for (let i = 0; i <= left; i++) {
+    sum = sum + cardPoints[i];
   }
 
-  //last k
-  let start = cardPoints.length - k;
-  point = 0;
-  for (let i = start; i < cardPoints.length; i++) {
-    point = point + cardPoints[i];
-    maxPoint = Math.max(maxPoint, point);
+  maxSum = Math.max(maxSum, sum);
+
+  while (left >= 0) {
+    sum = sum - cardPoints[left] + cardPoints[right];
+    maxSum = Math.max(maxSum, sum);
+    left--;
+    right--;
   }
-
-  //incase combination
-  let left = 0;
-  let right = 0;
-  point = 0;
-
-  for (let i = 0; i < k; i++) {
-    if (cardPoints[left] < cardPoints[right]) {
-      point = point + cardPoints[right];
-      right--;
-    } else if (cardPoints[left] > cardPoints[right]) {
-      point = point + cardPoints[left];
-      left++;
-    }
-
-    maxPoint = Math.max(maxPoint, point);
-  }
-
-  console.log(maxPoint);
+  console.log(maxSum);
 }
 
 maximumPoint(cardPoints, k);
