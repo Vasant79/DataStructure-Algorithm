@@ -1,28 +1,33 @@
-// generating subarr
+// function codechef
+const k = 4;
 
-const array = [1, 2];
+function checkForN(k) {
+  let sum = 0;
+  let start = 2;
+  end = 10;
 
-function generateSubArray(array) {
-  for (let i = 0; i < array.length; i++) {
-    const temp = [];
-    for (let j = i; j < array.length; j++) {
-      temp.push(array[j]);
-      console.log(temp);
+  while (start < 10) {
+    let val = k * start;
+
+    if (validVal(val, k)) {
+      console.log(`valid ${val} `, validVal(val));
+      sum = sum + val;
     }
+
+    start++;
   }
+  console.log("Sum of all N : ", sum);
 }
 
-const s = "va";
-
-function generateSubString(s) {
-  for (let i = 0; i < s.length; i++) {
-    let temp = "";
-    for (let j = i; j < s.length; j++) {
-      temp = temp + s[j];
-      console.log(temp);
+function validVal(val, k) {
+  for (let i = 1; i < val; i++) {
+    if (val % i == 0) {
+      if (k < i) {
+        return false;
+      }
     }
   }
+  return true;
 }
 
-generateSubArray(array);
-generateSubString(s);
+checkForN(k);
