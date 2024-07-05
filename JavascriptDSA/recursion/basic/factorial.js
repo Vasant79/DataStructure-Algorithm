@@ -1,14 +1,22 @@
-// factotrial using recursion
+// factorial of 2 using recursion
 
-function factorial(value, product) {
-  if (value == 0) {
-    console.log("factorial of given value is : ", product);
-    return;
+function factorialIterative(n) {
+  let res = 1;
+
+  for (let i = n; i > 1; i--) {
+    res = res * i;
   }
 
-  product = product * value;
-  value--;
-  factorial(value, product);
+  return res;
 }
 
-factorial(3, 1);
+function recursiveSolution(n) {
+  if (n === 1) {
+    return 1;
+  }
+
+  return n * recursiveSolution(n - 1);
+}
+
+console.log(factorialIterative(5));
+console.log(recursiveSolution(5));

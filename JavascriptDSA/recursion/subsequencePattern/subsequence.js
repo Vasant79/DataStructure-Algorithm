@@ -2,7 +2,7 @@
   print all the subsequence
  */
 
-const sub = [1, 2, 3];
+const sub = [1, 2];
 
 function subsequence(index, arr, sub) {
   //base

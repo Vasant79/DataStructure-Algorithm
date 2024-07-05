@@ -1,6 +1,6 @@
 // print the count of all subsequence where sum ==k
 
-const sub = [1, 2, 3, 4, 5];
+const sub = [1, 2];
 const k = 5;
 
 function countOfSubsequence(index, arr, sub, k, sum) {
